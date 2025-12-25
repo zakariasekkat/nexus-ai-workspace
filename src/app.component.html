@@ -1,0 +1,83 @@
+<div class="flex h-screen overflow-hidden bg-slate-50 text-slate-800 font-sans selection:bg-indigo-100 selection:text-indigo-700">
+  
+  <!-- Sidebar -->
+  <aside class="fixed inset-y-0 left-0 z-50 w-72 bg-white border-r border-slate-200/60 shadow-lg shadow-slate-200/50 transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] lg:relative lg:translate-x-0"
+         [class.-translate-x-full]="!menuOpen"
+         [class.translate-x-0]="menuOpen">
+    
+    <div class="flex items-center gap-3 px-8 h-20 border-b border-slate-100">
+      <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-600 to-violet-600 flex items-center justify-center text-white font-bold shadow-lg shadow-indigo-500/30">
+        N
+      </div>
+      <h1 class="text-xl font-bold tracking-tight text-slate-900">
+        NEXUS
+      </h1>
+    </div>
+
+    <nav class="mt-8 px-4 space-y-1.5">
+      <a routerLink="/dashboard" routerLinkActive="bg-indigo-50 text-indigo-700 shadow-sm" 
+         class="flex items-center gap-3 px-4 py-3.5 text-slate-500 font-medium rounded-xl hover:bg-slate-50 hover:text-slate-900 transition-all group relative overflow-hidden">
+         <svg class="transition-colors group-hover:text-slate-900" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
+         Dashboard
+      </a>
+      <a routerLink="/projects" routerLinkActive="bg-indigo-50 text-indigo-700 shadow-sm" 
+         class="flex items-center gap-3 px-4 py-3.5 text-slate-500 font-medium rounded-xl hover:bg-slate-50 hover:text-slate-900 transition-all group">
+         <svg class="transition-colors group-hover:text-slate-900" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+         Projects
+      </a>
+      <a routerLink="/vision" routerLinkActive="bg-indigo-50 text-indigo-700 shadow-sm" 
+         class="flex items-center gap-3 px-4 py-3.5 text-slate-500 font-medium rounded-xl hover:bg-slate-50 hover:text-slate-900 transition-all group">
+         <svg class="transition-colors group-hover:text-slate-900" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3"/></svg>
+         Vision Studio
+      </a>
+      <a routerLink="/chat" routerLinkActive="bg-indigo-50 text-indigo-700 shadow-sm" 
+         class="flex items-center gap-3 px-4 py-3.5 text-slate-500 font-medium rounded-xl hover:bg-slate-50 hover:text-slate-900 transition-all group">
+         <svg class="transition-colors group-hover:text-slate-900" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+         AI Chat
+      </a>
+    </nav>
+    
+    <div class="absolute bottom-6 left-6 right-6">
+      <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100 shadow-sm">
+        <div class="flex items-center gap-3">
+          <div class="relative flex h-3 w-3">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+          </div>
+          <div>
+            <p class="text-xs font-semibold text-slate-800">System Online</p>
+            <p class="text-[10px] text-slate-500">v2.5.0 Stable</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="flex-1 flex flex-col min-w-0 overflow-hidden bg-slate-50/50 relative">
+    <!-- Header Mobile -->
+    <header class="lg:hidden flex items-center justify-between p-4 bg-white border-b border-slate-100 shadow-sm z-20">
+      <div class="flex items-center gap-2">
+        <div class="w-6 h-6 rounded bg-indigo-600 flex items-center justify-center text-white text-xs font-bold">N</div>
+        <h1 class="text-lg font-bold text-slate-900">NEXUS</h1>
+      </div>
+      <button (click)="toggleMenu()" class="p-2 text-slate-500 hover:text-slate-900 hover:bg-slate-50 rounded-lg transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+      </button>
+    </header>
+
+    <div class="flex-1 overflow-auto p-4 lg:p-10 relative">
+      <!-- Ambient Background Graphic -->
+      <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-br from-indigo-100/40 to-violet-100/40 rounded-full blur-3xl -z-10 translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
+      
+      <div class="max-w-7xl mx-auto">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </main>
+  
+  <!-- Overlay for mobile menu -->
+  @if (menuOpen) {
+    <div (click)="toggleMenu()" class="fixed inset-0 bg-slate-900/20 z-40 lg:hidden backdrop-blur-sm transition-opacity"></div>
+  }
+</div>
